@@ -16,6 +16,8 @@
 
         <derby.version>10.17.1.0</derby.version>
         <lombok.version>1.18.28</lombok.version>
+        <slf4j.version>2.0.12</slf4j.version>
+        <logback.version>1.4.14</logback.version>
     </properties>
 
     <dependencies>
@@ -23,6 +25,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -30,6 +33,17 @@
             <artifactId>derby</artifactId>
             <version>${derby.version}</version>
 <!--            <scope>test</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
 
     </dependencies>
