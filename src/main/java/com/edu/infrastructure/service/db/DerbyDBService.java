@@ -18,7 +18,7 @@ public class DerbyDBService implements Closeable {
     public DerbyDBService() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         log.info("Initialising DerbyDBService...");
 
-        System.setProperty("derby.system.home", "/home/embedded-db/.derby");
+//        System.setProperty("derby.system.home", "/home/embedded-db/.derby");
 
         open();
     }
