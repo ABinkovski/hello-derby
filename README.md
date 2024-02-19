@@ -1,4 +1,7 @@
 # hello-derby
+
+Very simple Derby DB POC
+
 Based on:
 
 * https://db.apache.org/derby/papers/DerbyTut/embedded_intro.html
