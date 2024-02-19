@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,13 +22,7 @@ public class CarsRepository extends CommonRepository {
     private final Connection con;
 
     public boolean exists() throws SQLException {
-        final String query = "SELECT TRUE FROM SYS.SYSTABLES WHERE TABLENAME = ? AND TABLETYPE = 'T'";
-        try (final PreparedStatement pst = con.prepareStatement(query)) {
-            pst.setString(1, TABLE_NAME);
-            try (final ResultSet rs = pst.executeQuery()) {
-                return rs.next() && rs.getBoolean(1);
-            }
-        }
+        return super.exists(TABLE_NAME);
     }
 
     public void createTable() throws SQLException {
