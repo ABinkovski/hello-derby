@@ -33,13 +33,20 @@ public class DerbyDBService implements Closeable {
         return DriverManager.getConnection(protocol + "derbyDB;create=true");
     }
 
+    @SuppressWarnings("SwitchStatementWithTooFewBranches")
     @Override
     public void close() throws IOException {
         try {
             log.info("Stopping DB server...");
             DriverManager.getConnection(protocol + ";shutdown=true");
         } catch (final SQLException e) {
-            throw new IOException(e);
+            switch (e.getMessage()) {
+                case "Derby system shutdown.":
+                    log.info(e.getMessage());
+                    break;
+                default:
+                    throw new IOException(e);
+            }
         }
     }
 }
