@@ -15,7 +15,7 @@ public class MainApp {
 
             }
         } catch (final Exception e) {
-            e.printStackTrace(); // TODO add SLf4J with Logback
+            log.error(e.getMessage(), e);
         }
         log.info("Closing app..");
     }

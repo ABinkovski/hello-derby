@@ -14,7 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 
-        <derby.version>10.17.1.0</derby.version>
+        <!--        <derby.version>10.17.1.0</derby.version>-->
+        <!--        <derby.version>10.12.1.1</derby.version>-->
+        <derby.version>10.14.2.0</derby.version>
         <lombok.version>1.18.28</lombok.version>
         <slf4j.version>2.0.12</slf4j.version>
         <logback.version>1.4.14</logback.version>
