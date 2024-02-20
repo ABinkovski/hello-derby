@@ -13,7 +13,9 @@ public class MainApp {
         try (final DerbyDBService dbService = new DerbyDBService()) {
             try (final JdbcPooledConnectionSource jdbcPool = dbService.getConnectionPool()) {
                 final CarsRepository carsRepository = new CarsRepository(jdbcPool);
-                if (carsRepository.createTable()) {
+
+                if (!carsRepository.exists()) {
+                    carsRepository.createTable();
                     carsRepository.insertTestData();
                 }
 

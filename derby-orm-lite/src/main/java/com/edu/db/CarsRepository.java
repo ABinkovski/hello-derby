@@ -5,35 +5,32 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcPooledConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
-
 @Slf4j
-@RequiredArgsConstructor
 public class CarsRepository {
-
-    private final JdbcPooledConnectionSource con;
 
     private Dao<Car, Integer> dao;
 
-    public boolean createTable() throws SQLException {
+    public CarsRepository(final JdbcPooledConnectionSource con) throws SQLException {
+        dao = DaoManager.createDao(con, Car.class);
+    }
+
+    public boolean exists() throws SQLException {
+        return dao.isTableExists();
+    }
+
+    public void createTable() throws SQLException {
         // Create if not exists is not supported out of the box for orm lite due to
         // DerbyEmbeddedDatabaseType.isCreateIfNotExistsSupported always return false
-        // TODO use CustomDerbyEmbeddedDatabaseType instead
-        final int createIfNotExists = TableUtils.createTableIfNotExists(con, Car.class);
+        final int createIfNotExists = TableUtils.createTableIfNotExists(dao.getConnectionSource(), Car.class);
         log.info("Table is created: {}", createIfNotExists);
 
-        dao = DaoManager.lookupDao(con, Car.class);
 
-        assert nonNull(dao) : "Could not find Car DAO Manager";
-
-        return createIfNotExists == 1;
     }
 
     public List<Car> getCars() throws SQLException {
