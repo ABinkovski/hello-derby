@@ -9,12 +9,30 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>derby-native-sql</artifactId>
+    <artifactId>derby-orm-lite</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+
+        <ormlite.version>6.1</ormlite.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-jdbc</artifactId>
+            <version>${ormlite.version}</version>
+            <exclusions>
+                <exclusion>
+                    <!-- Embedded version is vulnerable, newer is fixed but out of scope -->
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+    </dependencies>
 </project>

@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>derby-native-sql</module>
+        <module>derby-orm-lite</module>
     </modules>
 
     <properties>
