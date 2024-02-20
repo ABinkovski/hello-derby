@@ -7,6 +7,10 @@
     <groupId>com.edu</groupId>
     <artifactId>hello-derby</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>derby-native-sql</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

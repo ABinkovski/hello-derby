@@ -10,3 +10,6 @@ Based on:
 IN-MEMORY DB configuration:
 https://db.apache.org/derby/papers/DerbyTut/install_software.html#derby_configure
 
+Project structure:
+
+1. [derby-native-sql](derby-native-sql) - the simplest derby in-memory implementation
