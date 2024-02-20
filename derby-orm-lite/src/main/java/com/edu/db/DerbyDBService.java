@@ -14,7 +14,7 @@ public class DerbyDBService implements Closeable {
 
     private final String driverName = "org.apache.derby.jdbc.EmbeddedDriver";
     private final String protocol = "jdbc:derby:";
-    private final String IN_MEM_DB_NAME = "derbyDBOrm";
+    private final String IN_MEM_DB_NAME = "derbyDB";
 
     public DerbyDBService() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         log.info("Initialising DerbyDBService...");
